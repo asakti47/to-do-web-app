@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Edit a To-Do item</h2>
+<form method="POST" action="{{ url_for('edit_post', mongoid=mongoid) }}">
+  <p>
+    To-Do Item:
+    <textarea id="ftodo" name="ftodo">{{doc.todo_item}}</textarea>
+    Deadline:
+    <input type="date" id="fdeadline" name="fdeadline">
+  </p>
+  <p>
+    <a href="{{ url_for('home')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Save" />
+  </p>
+</form>
+{% endblock %}

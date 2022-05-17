@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h2>My To-Do List</h2>
+<hr class ="solid">
+<p>Number of To-Do Items: {{docs_count}}</p>
+<p>
+    <a href="{{ url_for('delete_all')}}">Delete All To-Do Items</a> 
+</p>
+<form method="POST" action="{{ url_for('search_post') }}">
+    <p>
+      Search For To-Do Item:
+      <textarea type="text" id="fsearch" name="fsearch"></textarea>
+    </p>
+    <p>
+      <input type="submit" name="search-btn" value="Search" />
+    </p>
+  </form>
+<p>
+        
+    {% for doc in docs %}
+    <div>
+        <hr class="solid">
+        <p>
+            {{ doc.todo_item }}
+        </p>
+        <p class="post">
+            Due: {{ doc.deadline }}
+            </br>
+            <a href="{{ url_for('edit',mongoid=doc._id)}}">Edit</a> | <a href="{{ url_for('delete',mongoid=doc._id)}}">Delete</a>
+            </br>
+        </p>   
+    </div>
+    {%endfor%}
+</p>
+{% endblock %}

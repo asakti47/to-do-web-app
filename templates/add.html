@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Add a To-Do Item</h2>
+<form method="POST" action="{{ url_for('add_post') }}">
+  <p>
+    To-Do Item:
+    <textarea type="text" id="ftodo" name="ftodo"></textarea> <br>
+    Deadline:
+    <input type="date" id="fdeadline" name="fdeadline">
+  </p>
+  <p>
+    <a href="{{ url_for('home')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Add" />
+  </p>
+</form>
+{% endblock %}

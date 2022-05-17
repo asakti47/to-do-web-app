@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block container %}
+<p>
+        
+  {% for doc in search_results %}
+  <div>
+      <hr class="solid">
+      <p>
+          {{ doc.todo_item }}
+      </p>
+      <p class="post">
+          Due: {{ doc.deadline }}
+          </br>
+          <a href="{{ url_for('edit',mongoid=doc._id)}}">Edit</a> | <a href="{{ url_for('delete',mongoid=doc._id)}}">Delete</a>
+          </br>
+      </p>   
+  </div>
+  {%endfor%}
+</p>
+{% endblock %}

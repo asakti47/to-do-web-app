@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>To-Do App</h1>
+        <p>
+          <a href="{{ url_for('home')}}">My To-Do List</a> |
+          <a href="{{ url_for('add')}}">Add a To-Do Item</a>
+        </p>
+      </header>
+      <main>{% block container %} {% endblock %}</main>
+      <footer>
+        <p>
+          By: Argy Sakti, 2022
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
